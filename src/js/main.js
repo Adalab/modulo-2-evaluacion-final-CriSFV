@@ -15,7 +15,7 @@ function searchFilm() {
     .then((data) => {
       for (const eachdata of data) {
         if (eachdata.show.image === null) {
-          filmList.innerHTML += `<li class="film"><img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="Caratula"><h3 class="film-title">${eachdata.show.name}</h3></li>`;
+          filmList.innerHTML += `<li class="film"><img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="Caratula"><h3 class="film__title">${eachdata.show.name}</h3></li>`;
         } else {
           filmList.innerHTML += `<li class="film"><img src="${eachdata.show.image.medium}" alt="Caratula"><h3 class="film__title">${eachdata.show.name}</h3></li>`;
         }

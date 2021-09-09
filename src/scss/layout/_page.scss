@@ -1,12 +1,30 @@
-.main__lists {
-  display: flex;
-  justify-content: space-around;
+.main {
+  &__lists {
+    display: flex;
+    justify-content: space-around;
+  }
+  &__form {
+    &__userText {
+      font-size: 20px;
+    }
+    &__searchButton {
+      font-size: 20px;
+    }
+  }
 }
-
+.list {
+  padding: 20px;
+}
 .film {
   list-style-type: none;
+  margin: 10px;
   &__title {
     margin-top: 0px;
     margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Azeret Mono', monospace;
+  }
+  &__selected {
+    border: blue 20px solid;
   }
 }
