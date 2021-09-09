@@ -1,11 +1,12 @@
-.all__list {
+.main__lists {
   display: flex;
-  flex-direction: row;
+  justify-content: space-around;
 }
-.filmList__image {
-  display: block;
-}
-.film-title {
-  margin-top: 0px;
-  margin-bottom: 20px;
+
+.film {
+  list-style-type: none;
+  &__title {
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
 }
