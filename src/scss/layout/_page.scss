@@ -18,6 +18,10 @@
 .film {
   list-style-type: none;
   margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: white 20px solid;
   &__title {
     margin-top: 0px;
     margin-bottom: 20px;
@@ -26,5 +30,6 @@
   }
   &__selected {
     border: blue 20px solid;
+    box-sizing: content-box;
   }
 }
