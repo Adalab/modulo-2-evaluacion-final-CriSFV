@@ -1,24 +1,26 @@
 'use strict';
+const form = document.querySelector('.js_form');
 const userSearch = document.querySelector('.js_userText');
 const searchButton = document.querySelector('.js_searchButton');
-const filmList = document.querySelector('.js_filmList');
+let filmList = document.querySelector('.js_filmList');
 const favoriteList = document.querySelector('.js_favoriteList');
 
 function submitDefault(event) {
   event.preventDefault();
 }
-userSearch.addEventListener('submit', submitDefault);
+form.addEventListener('submit', submitDefault);
 
-function searchFilm() {
+function getApi() {
+  filmList.innerHTML = '';
   const userSearchValue = userSearch.value;
   fetch(`//api.tvmaze.com/search/shows?q=${userSearchValue}`)
     .then((response) => response.json())
     .then((data) => {
       for (const eachdata of data) {
         if (eachdata.show.image === null) {
-          filmList.innerHTML += `<li class="film js_film"><img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="Caratula"><h3 class="film__title">${eachdata.show.name}</h3></li>`;
+          filmList.innerHTML += `<li class="film js_film" id="${eachdata.show.id}"><img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="Caratula"><h3 class="film__title">${eachdata.show.name}</h3></li>`;
         } else {
-          filmList.innerHTML += `<li class="film js_film"><img src="${eachdata.show.image.medium}" alt="Caratula"><h3 class="film__title">${eachdata.show.name}</h3></li>`;
+          filmList.innerHTML += `<li class="film js_film" id="${eachdata.show.id}"><img src="${eachdata.show.image.medium}" alt="Caratula"><h3 class="film__title">${eachdata.show.name}</h3></li>`;
         }
         selectedFilmListener();
       }
@@ -26,9 +28,19 @@ function searchFilm() {
 }
 function handleFavoriteFilmSelected(ev) {
   const filmSelected = ev.target.parentElement;
+  const filmSelectedId = ev.target.parentElement.id;
+  console.log(filmSelected); //devuelve li
+  console.log(filmSelectedId); // devuelve id
   filmSelected.classList.toggle('film__selected');
-  //si está, no volverlo a añadir, y si se desmarca eliminarlo
-  favoriteList.innerHTML += filmSelected.innerHTML;
+
+  //si lo quito del favoriteList ya no me deja incluir más
+  if (filmSelected.classList.contains('film__selected')) {
+    favoriteList.innerHTML += filmSelected.innerHTML;
+    console.log(filmSelected); //devuelve li
+  } else {
+    console.log(filmSelected);
+    favoriteList.remove(filmSelected); // me quita la lista
+  }
 }
 
 function selectedFilmListener() {
@@ -39,6 +51,6 @@ function selectedFilmListener() {
 }
 
 function handleClickButton() {
-  searchFilm();
+  getApi();
 }
 searchButton.addEventListener('click', handleClickButton);
