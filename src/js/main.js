@@ -11,7 +11,7 @@ function submitDefault(event) {
 }
 form.addEventListener('submit', submitDefault);
 
-function paintFavorites(ev) {
+function paintFavorites() {
   // const filmSelected = ev.target.parentElement;
   // filmSelected.classList.toggle('film__selected');
   favoriteList.innerHTML = '';
@@ -27,7 +27,6 @@ function paintFavorites(ev) {
 function handleFilmSelected(ev) {
   const filmSelectedId = parseInt(ev.target.parentElement.id);
   const filmClicked = dataFilms.find((film) => film.show.id === filmSelectedId);
-  console.log(favorites);
   const numberInFavorites = favorites.findIndex((fav) => {
     return fav.show.id === filmSelectedId;
   });
@@ -62,7 +61,6 @@ function paintFilms() {
   let selectedClass = '';
   for (const eachdata of dataFilms) {
     const isFav = isInFavorite(eachdata);
-    console.log(isFav);
     if (isFav) {
       selectedClass = 'film__selected';
     } else {
