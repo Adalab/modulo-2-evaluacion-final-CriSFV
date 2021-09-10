@@ -22,14 +22,16 @@
   flex-direction: column;
   align-items: center;
   border: white 20px solid;
+  font-family: $font-family;
+  font-size: 30px;
   &__title {
     margin-top: 0px;
     margin-bottom: 20px;
     text-align: center;
-    font-family: 'Azeret Mono', monospace;
   }
   &__selected {
     border: blue 20px solid;
     box-sizing: content-box;
+    font-family: $font-family-selected;
   }
 }
