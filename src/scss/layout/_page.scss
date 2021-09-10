@@ -30,7 +30,7 @@
     text-align: center;
   }
   &__selected {
-    border: blue 20px solid;
+    border-color: blue;
     box-sizing: content-box;
     font-family: $font-family-selected;
   }

@@ -26,16 +26,17 @@ function paintFavorites(ev) {
 
 function handleFilmSelected(ev) {
   const filmSelectedId = parseInt(ev.target.parentElement.id);
-  //si quiero que me lo añada:
-  const filmClicked = dataFilms.find((film) => film.show.id === filmSelectedId); //ultima pinchada la busca en el array de dataFilm
+  const filmClicked = dataFilms.find((film) => film.show.id === filmSelectedId);
+  console.log(favorites);
+  const isInFavorites = favorites.findIndex((fav) => {
+    return fav.show.id === filmSelectedId;
+  });
 
-  favorites.push(filmClicked); // incluye ultima pinchada en favoritos
-
-  // const filmClickedFavorite = favorites.findIndex(
-  //   (fav) => fav.show.id === filmSelectedId
-  // );
-  // console.log(filmClickedFavorite);
-
+  if (isInFavorites === -1) {
+    favorites.push(filmClicked);
+  } else {
+    favorites.splice(isInFavorites, 1);
+  }
   paintFavorites(ev);
 }
 
