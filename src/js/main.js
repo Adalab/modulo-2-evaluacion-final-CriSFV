@@ -29,17 +29,13 @@ function getApi() {
 function handleFavoriteFilmSelected(ev) {
   const filmSelected = ev.target.parentElement;
   const filmSelectedId = ev.target.parentElement.id;
-  console.log(filmSelected); //devuelve li
-  console.log(filmSelectedId); // devuelve id
+
   filmSelected.classList.toggle('film__selected');
 
-  //si lo quito del favoriteList ya no me deja incluir más
   if (filmSelected.classList.contains('film__selected')) {
     favoriteList.innerHTML += filmSelected.innerHTML;
-    console.log(filmSelected); //devuelve li
   } else {
-    console.log(filmSelected);
-    favoriteList.remove(filmSelected); // me quita la lista
+    favoriteList.remove(filmSelected);
   }
 }
 
