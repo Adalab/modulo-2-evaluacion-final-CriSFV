@@ -12,8 +12,6 @@ function submitDefault(event) {
 form.addEventListener('submit', submitDefault);
 
 function paintFavorites() {
-  // const filmSelected = ev.target.parentElement;
-  // filmSelected.classList.toggle('film__selected');
   favoriteList.innerHTML = '';
   for (const fav of favorites) {
     if (fav.show.image === null) {
@@ -38,6 +36,7 @@ function handleFilmSelected(ev) {
   }
   paintFavorites(ev);
   paintFilms();
+  setInLocalStorage();
 }
 
 function selectedFilmListener() {
@@ -74,6 +73,12 @@ function paintFilms() {
     selectedFilmListener();
   }
 }
+function setInLocalStorage() {
+  const stringFilms = JSON.stringify(dataFilms);
+  const stringFavoriteFilms = JSON.stringify(favorites);
+  localStorage.setItem('films', stringFilms);
+  localStorage.setItem('favoritesFilms', stringFavoriteFilms);
+}
 function getApi() {
   const userSearchValue = userSearch.value;
   fetch(`//api.tvmaze.com/search/shows?q=${userSearchValue}`)
@@ -81,10 +86,25 @@ function getApi() {
     .then((data) => {
       dataFilms = data;
       paintFilms();
+      setInLocalStorage();
     });
 }
-
+function getLocalStorage() {
+  const localStorageFilms = localStorage.getItem('films');
+  const localStorageFavorites = localStorage.getItem('favoritesFilms');
+  if (localStorageFilms === null || localStorageFavorites === null) {
+    getApi();
+  } else {
+    const arrayFavorites = JSON.parse(localStorageFavorites);
+    const arrayFilms = JSON.parse(localStorageFilms);
+    favorites = arrayFavorites;
+    dataFilms = arrayFilms;
+    paintFilms();
+    paintFavorites();
+  }
+}
 function handleClickButton() {
   getApi();
 }
 searchButton.addEventListener('click', handleClickButton);
+getLocalStorage();
