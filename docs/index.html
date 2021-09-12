@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&family=Inconsolata:wght@200&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@85.1,419&family=Roboto+Mono:wght@331&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/main.css">
   <title>Evaluación final. Modulo-2. Cris Fernández</title>
@@ -20,21 +20,25 @@
       <h1 class="title">Buscador de series</h1>
     </header>
     <main class="main">
+
       <form action="" class="main__form js_form">
-        <input class="main__form__userText js_userText" type="text" placeholder="Escribe aquí la serie">
+        <input class="main__form__userText js_userText" type="text" placeholder="Busca tu serie">
         <input class="main__form__searchButton js_searchButton" type="button" value="Buscar">
       </form>
       <section class="main__lists js_list">
-        <ul class="list list__favorites js_favoriteList">
-
-        </ul>
-        <ul class="list list__films js_filmList">
-
-        </ul>
+        <div class="list">
+          <h2 class="main__title js_listFavoriteTitle"></h2>
+          <ul class="list__films list__favorites js_favoriteList">
+          </ul>
+        </div>
+        <div class="list">
+          <h2 class="main__title js_listTitle"></h2>
+          <ul class="list__films list__search js_filmList">
+          </ul>
+        </div>
 
       </section>
     </main>
-    
   </div>
   <script src="./assets/js/main.js"></script>
 </body>
