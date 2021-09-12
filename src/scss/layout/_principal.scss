@@ -36,9 +36,18 @@
   font-size: 30px;
   padding: 10px;
   &__title {
-    margin: 10px 0;
-
-    text-align: center;
+    &__fav {
+      margin: 10px 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+  &__button {
+    height: fit-content;
+    background-color: rgb(202, 30, 202);
+    font-weight: bold;
   }
   &__selected {
     background-color: rgb(202, 30, 202);
