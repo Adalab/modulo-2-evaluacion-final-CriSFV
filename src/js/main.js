@@ -27,7 +27,6 @@ function hadleRemoveFavFilm(ev) {
 function selectRemoveFavlistener() {
   const removeButtons = document.querySelectorAll('.js_removeFavButton');
   for (const eachButton of removeButtons) {
-    eachButton.addEventListener('click', submitDefault);
     eachButton.addEventListener('click', hadleRemoveFavFilm);
   }
 }
@@ -36,9 +35,9 @@ function paintFavorites() {
   favoriteList.innerHTML = '';
   for (const fav of favorites) {
     if (fav.show.image === null) {
-      favoriteList.innerHTML += `<li class="film js_film" id="${fav.show.id}"><img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="Caratula"><div class="film__title__fav"><h3> ${fav.show.name} </h3><button class="film__button js_removeFavButton">X</button></div></li>`;
+      favoriteList.innerHTML += `<li class="film" id="${fav.show.id}"><img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="Caratula"><div class="film__title__fav"><h3> ${fav.show.name} </h3><button class="film__button js_removeFavButton">X</button></div></li>`;
     } else {
-      favoriteList.innerHTML += `<li class="film js_film" id="${fav.show.id}"><img src="${fav.show.image.medium}" alt="Caratula"><div class="film__title__fav"><h3>${fav.show.name}</h3><button class="film__button js_removeFavButton">X</button></div></li>`;
+      favoriteList.innerHTML += `<li class="film" id="${fav.show.id}"><img src="${fav.show.image.medium}" alt="Caratula"><div class="film__title__fav"><h3>${fav.show.name}</h3><button class="film__button js_removeFavButton">X</button></div></li>`;
     }
   }
   if (favoriteList.innerHTML === '') {
@@ -104,7 +103,6 @@ function paintFilms() {
 }
 function setInLocalStorage() {
   const stringFavoriteFilms = JSON.stringify(favorites);
-
   localStorage.setItem('favoritesFilms', stringFavoriteFilms);
 }
 function getApi() {
