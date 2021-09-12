@@ -4,6 +4,8 @@ const userSearch = document.querySelector('.js_userText');
 const searchButton = document.querySelector('.js_searchButton');
 const filmList = document.querySelector('.js_filmList');
 const favoriteList = document.querySelector('.js_favoriteList');
+const listTitle = document.querySelector('.js_listTitle');
+const listFavoriteTitle = document.querySelector('.js_listFavoriteTitle');
 let dataFilms = [];
 let favorites = [];
 function submitDefault(event) {
@@ -13,6 +15,7 @@ form.addEventListener('submit', submitDefault);
 
 function paintFavorites() {
   favoriteList.innerHTML = '';
+
   for (const fav of favorites) {
     if (fav.show.image === null) {
       favoriteList.innerHTML += `<li class="film js_film" id="${fav.show.id}"><img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="Caratula"><h3 class="film__title">${fav.show.name}</h3></li>`;
@@ -20,10 +23,11 @@ function paintFavorites() {
       favoriteList.innerHTML += `<li class="film js_film" id="${fav.show.id}"><img src="${fav.show.image.medium}" alt="Caratula"><h3 class="film__title">${fav.show.name}</h3></li>`;
     }
   }
+  listFavoriteTitle.innerHTML = 'Series favoritas';
 }
 
 function handleFilmSelected(ev) {
-  const filmSelectedId = parseInt(ev.target.parentElement.id);
+  const filmSelectedId = parseInt(ev.currentTarget.id);
   const filmClicked = dataFilms.find((film) => film.show.id === filmSelectedId);
   const numberInFavorites = favorites.findIndex((fav) => {
     return fav.show.id === filmSelectedId;
@@ -58,6 +62,7 @@ function isInFavorite(eachdata) {
 function paintFilms() {
   filmList.innerHTML = '';
   let selectedClass = '';
+
   for (const eachdata of dataFilms) {
     const isFav = isInFavorite(eachdata);
     if (isFav) {
@@ -70,6 +75,7 @@ function paintFilms() {
     } else {
       filmList.innerHTML += `<li class="film js_film ${selectedClass}" id="${eachdata.show.id}"><img src="${eachdata.show.image.medium}" alt="Caratula"><h3 class="film__title">${eachdata.show.name}</h3></li>`;
     }
+    listTitle.innerHTML = 'Series';
     selectedFilmListener();
   }
 }

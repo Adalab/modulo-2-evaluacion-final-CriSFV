@@ -1,9 +1,17 @@
 .main {
+  &__title {
+    font-family: $font-family;
+    font-size: 30px;
+    text-align: center;
+  }
   &__lists {
+    margin-top: 20px;
     display: flex;
     justify-content: space-around;
   }
   &__form {
+    text-align: center;
+    margin: 10px;
     &__userText {
       font-size: 20px;
     }
@@ -14,24 +22,27 @@
 }
 .list {
   padding: 20px;
+  &__films {
+    padding: 0;
+  }
 }
 .film {
   list-style-type: none;
-  margin: 10px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: white 20px solid;
   font-family: $font-family;
   font-size: 30px;
+  padding: 10px;
   &__title {
-    margin-top: 0px;
-    margin-bottom: 20px;
+    margin: 10px 0;
+
     text-align: center;
   }
   &__selected {
-    border-color: blue;
-    box-sizing: content-box;
+    background-color: purple;
+
     font-family: $font-family-selected;
   }
 }
