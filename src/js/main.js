@@ -14,17 +14,39 @@ function submitDefault(event) {
 }
 form.addEventListener('submit', submitDefault);
 
+function hadleRemoveFavFilm(ev) {
+  const divTitle = ev.target.parentNode;
+  const filmSelectedID = parseInt(divTitle.parentNode.id);
+  const numberInFavorites = favorites.findIndex((fav) => {
+    return fav.show.id === filmSelectedID;
+  });
+  favorites.splice(numberInFavorites, 1);
+  setInLocalStorage();
+  paintFavorites();
+}
+function selectRemoveFavlistener() {
+  const removeButtons = document.querySelectorAll('.js_removeFavButton');
+  for (const eachButton of removeButtons) {
+    eachButton.addEventListener('click', submitDefault);
+    eachButton.addEventListener('click', hadleRemoveFavFilm);
+  }
+}
+
 function paintFavorites() {
   favoriteList.innerHTML = '';
-
   for (const fav of favorites) {
     if (fav.show.image === null) {
-      favoriteList.innerHTML += `<li class="film js_film" id="${fav.show.id}"><img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="Caratula"><div class="film__title__fav"><h3> ${fav.show.name} </h3><button class="film__button js_removeFav">X</button></div></li>`;
+      favoriteList.innerHTML += `<li class="film js_film" id="${fav.show.id}"><img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="Caratula"><div class="film__title__fav"><h3> ${fav.show.name} </h3><button class="film__button js_removeFavButton">X</button></div></li>`;
     } else {
-      favoriteList.innerHTML += `<li class="film js_film" id="${fav.show.id}"><img src="${fav.show.image.medium}" alt="Caratula"><div class="film__title__fav"><h3>${fav.show.name}</h3><button class="film__button js_removeFav"</button>X</div></li>`;
+      favoriteList.innerHTML += `<li class="film js_film" id="${fav.show.id}"><img src="${fav.show.image.medium}" alt="Caratula"><div class="film__title__fav"><h3>${fav.show.name}</h3><button class="film__button js_removeFavButton">X</button></div></li>`;
     }
   }
-  listFavoriteTitle.innerHTML = 'Series favoritas';
+  if (favoriteList.innerHTML === '') {
+    listFavoriteTitle.innerHTML = '';
+  } else {
+    listFavoriteTitle.innerHTML = 'Series favoritas';
+  }
+  selectRemoveFavlistener();
 }
 
 function handleFilmSelected(ev) {
