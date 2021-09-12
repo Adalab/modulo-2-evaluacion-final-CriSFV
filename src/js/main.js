@@ -8,6 +8,7 @@ const listTitle = document.querySelector('.js_listTitle');
 const listFavoriteTitle = document.querySelector('.js_listFavoriteTitle');
 let dataFilms = [];
 let favorites = [];
+
 function submitDefault(event) {
   event.preventDefault();
 }
@@ -18,9 +19,9 @@ function paintFavorites() {
 
   for (const fav of favorites) {
     if (fav.show.image === null) {
-      favoriteList.innerHTML += `<li class="film js_film" id="${fav.show.id}"><img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="Caratula"><h3 class="film__title">${fav.show.name}</h3></li>`;
+      favoriteList.innerHTML += `<li class="film js_film" id="${fav.show.id}"><img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="Caratula"><div class="film__title"><h3>${fav.show.name}</h3><button class="js_ressetButton">X</button></div></li>`;
     } else {
-      favoriteList.innerHTML += `<li class="film js_film" id="${fav.show.id}"><img src="${fav.show.image.medium}" alt="Caratula"><h3 class="film__title">${fav.show.name}</h3></li>`;
+      favoriteList.innerHTML += `<li class="film js_film" id="${fav.show.id}"><img src="${fav.show.image.medium}" alt="Caratula"><div class="film__title"><h3>${fav.show.name}</h3><button class="js_ressetButton"</button>X</div></li>`;
     }
   }
   listFavoriteTitle.innerHTML = 'Series favoritas';
