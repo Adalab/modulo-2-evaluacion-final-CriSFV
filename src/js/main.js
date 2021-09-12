@@ -35,9 +35,9 @@ function paintFavorites() {
   favoriteList.innerHTML = '';
   for (const fav of favorites) {
     if (fav.show.image === null) {
-      favoriteList.innerHTML += `<li class="film" id="${fav.show.id}"><img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="Caratula"><div class="film__title__fav"><h3> ${fav.show.name} </h3><button class="film__button js_removeFavButton">X</button></div></li>`;
+      favoriteList.innerHTML += `<li class="filmfav" id="${fav.show.id}"><img class="filmfav__img" src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="Caratula"><div class="filmfav__title"><h3> ${fav.show.name} </h3><button class="filmfav__button js_removeFavButton">X</button></div></li>`;
     } else {
-      favoriteList.innerHTML += `<li class="film" id="${fav.show.id}"><img src="${fav.show.image.medium}" alt="Caratula"><div class="film__title__fav"><h3>${fav.show.name}</h3><button class="film__button js_removeFavButton">X</button></div></li>`;
+      favoriteList.innerHTML += `<li class="filmfav" id="${fav.show.id}"><img class="filmfav__img" src="${fav.show.image.medium}" alt="Caratula"><div class="filmfav__title"><h3>${fav.show.name}</h3><button class="filmfav__button js_removeFavButton">X</button></div></li>`;
     }
   }
   if (favoriteList.innerHTML === '') {
