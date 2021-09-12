@@ -41,8 +41,8 @@
     text-align: center;
   }
   &__selected {
-    background-color: purple;
-
+    background-color: rgb(202, 30, 202);
     font-family: $font-family-selected;
+    font-size: 20px;
   }
 }
