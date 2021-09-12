@@ -49,8 +49,13 @@
     margin: 10px 10px;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+  }
+  &__img {
+    width: 100px;
+    margin-top: 10px;
   }
   &__button {
     height: fit-content;
@@ -58,7 +63,7 @@
     background-color: black;
     color: rgb(125, 216, 121);
     font-weight: bold;
-    margin-left: 8px;
+    margin-top: 8px;
     padding: 5px;
   }
 }
