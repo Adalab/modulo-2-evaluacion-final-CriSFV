@@ -81,9 +81,8 @@ function paintFilms() {
   }
 }
 function setInLocalStorage() {
-  const stringFilms = JSON.stringify(dataFilms);
   const stringFavoriteFilms = JSON.stringify(favorites);
-  localStorage.setItem('films', stringFilms);
+
   localStorage.setItem('favoritesFilms', stringFavoriteFilms);
 }
 function getApi() {
@@ -93,20 +92,17 @@ function getApi() {
     .then((data) => {
       dataFilms = data;
       paintFilms();
-      setInLocalStorage();
     });
 }
 function getLocalStorage() {
-  const localStorageFilms = localStorage.getItem('films');
   const localStorageFavorites = localStorage.getItem('favoritesFilms');
-  if (localStorageFilms === null || localStorageFavorites === null) {
+  if (localStorageFavorites === null) {
     getApi();
   } else {
     const arrayFavorites = JSON.parse(localStorageFavorites);
-    const arrayFilms = JSON.parse(localStorageFilms);
+
     favorites = arrayFavorites;
-    dataFilms = arrayFilms;
-    paintFilms();
+
     paintFavorites();
   }
 }
