@@ -1,10 +1,27 @@
-.page {
-  background-color: rgb(228, 243, 190);
-  background-size: cover;
+.header {
+  background-color: $color-header;
+  padding-bottom: 15px;
+  &__title {
+    padding-top: 25px;
+    font-family: $font-family;
+    font-size: 70px;
+    text-align: center;
+  }
+  &__form {
+    text-align: center;
+    margin: 10px;
+    &__userText {
+      font-size: 18px;
+      border-radius: 5px;
+    }
+    &__searchButton {
+      font-size: 18px;
+      background-color: $color-selected;
+      border-radius: 10px;
+    }
+  }
 }
-.title {
-  padding: 25px;
-  font-family: $font-family;
-  font-size: 70px;
-  text-align: center;
+.fas {
+  padding: 30px;
+  font-size: 40px;
 }

@@ -1,33 +1,18 @@
 .main {
+  &__lists {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+.list {
+  padding: 10px;
   &__title {
     font-family: $font-family;
     font-size: 30px;
     text-align: center;
   }
-  &__lists {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-around;
-  }
-  &__form {
-    text-align: center;
-    margin: 10px;
-    &__userText {
-      font-size: 18px;
-    }
-    &__searchButton {
-      font-size: 18px;
-    }
-  }
-}
-.list {
-  padding: 20px;
   &__films {
     padding: 0;
-  }
-  &__button {
-    margin-top: 10px;
-    padding: 5px;
   }
   &__search {
     @media (min-width: 1120px) {
@@ -49,7 +34,7 @@
     width: 165px;
   }
   &__selected {
-    background-color: rgb(125, 216, 121);
+    background-color: $color-selected;
     font-family: $font-family-selected;
     font-size: 20px;
   }
@@ -74,9 +59,16 @@
     height: fit-content;
     border-radius: 50%;
     background-color: black;
-    color: rgb(125, 216, 121);
+    color: $color-selected;
     font-weight: bold;
     margin-top: 8px;
     padding: 5px;
   }
+}
+.list__fav__button {
+  background-color: black;
+  color: $color-selected;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 5px;
 }

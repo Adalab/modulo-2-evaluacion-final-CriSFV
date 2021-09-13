@@ -64,7 +64,7 @@ function paintFavorites() {
       const deleteAllButton = document.createElement('button');
       const deleteButtonText = document.createTextNode('Borrar favoritos');
       deleteAllButton.appendChild(deleteButtonText);
-      deleteAllButton.classList.add('list__button', 'js_removeAllFav');
+      deleteAllButton.classList.add('list__fav__button', 'js_removeAllFav');
       listContainer.appendChild(deleteAllButton);
     }
   }
