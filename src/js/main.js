@@ -60,7 +60,6 @@ function paintFavorites() {
     }
   } else {
     listFavoriteTitle.innerHTML = 'Series favoritas';
-    console.log(document.querySelector('.js_removeAllFav'));
     if (document.querySelector('.js_removeAllFav') === null) {
       const deleteAllButton = document.createElement('button');
       const deleteButtonText = document.createTextNode('Borrar favoritos');
