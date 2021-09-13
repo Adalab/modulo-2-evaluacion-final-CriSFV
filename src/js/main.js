@@ -117,9 +117,9 @@ function paintFilms() {
       selectedClass = '';
     }
     if (eachdata.show.image === null) {
-      filmList.innerHTML += `<li class="film js_film ${selectedClass}" id="${eachdata.show.id}"><img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="Caratula"><h3 class="film__title">${eachdata.show.name}</h3></li>`;
+      filmList.innerHTML += `<li class="film js_film ${selectedClass}" id="${eachdata.show.id}"><img class="film__img" src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="Caratula"><h3 class="film__title">${eachdata.show.name}</h3></li>`;
     } else {
-      filmList.innerHTML += `<li class="film js_film ${selectedClass}" id="${eachdata.show.id}"><img src="${eachdata.show.image.medium}" alt="Caratula"><h3 class="film__title">${eachdata.show.name}</h3></li>`;
+      filmList.innerHTML += `<li class="film js_film ${selectedClass}" id="${eachdata.show.id}"><img class="film__img" src="${eachdata.show.image.medium}" alt="Caratula"><h3 class="film__title">${eachdata.show.name}</h3></li>`;
     }
     listTitle.innerHTML = 'Series';
     selectedFilmListener();
