@@ -6,6 +6,8 @@ const filmList = document.querySelector('.js_filmList');
 const favoriteList = document.querySelector('.js_favoriteList');
 const listTitle = document.querySelector('.js_listTitle');
 const listFavoriteTitle = document.querySelector('.js_listFavoriteTitle');
+const listContainer = document.querySelector('.js_favoriteListContainer');
+
 let dataFilms = [];
 let favorites = [];
 
@@ -24,11 +26,18 @@ function hadleRemoveFavFilm(ev) {
   setInLocalStorage();
   paintFavorites();
 }
+function hadleRemoveAllFavFilm() {
+  favorites.splice(0, favorites.length);
+  paintFavorites();
+  paintFilms();
+}
 function selectRemoveFavlistener() {
   const removeButtons = document.querySelectorAll('.js_removeFavButton');
   for (const eachButton of removeButtons) {
     eachButton.addEventListener('click', hadleRemoveFavFilm);
   }
+  const removeAllButton = document.querySelector('.js_removeAllFav');
+  removeAllButton.addEventListener('click', hadleRemoveAllFavFilm);
 }
 
 function paintFavorites() {
@@ -42,8 +51,19 @@ function paintFavorites() {
   }
   if (favoriteList.innerHTML === '') {
     listFavoriteTitle.innerHTML = '';
+    const deleteAllButton = document.querySelector('.js_removeAllFav');
+    if (deleteAllButton !== null) {
+      deleteAllButton.remove();
+    }
   } else {
     listFavoriteTitle.innerHTML = 'Series favoritas';
+    if (document.querySelector('.js_removeAllFav') === null) {
+      const deleteAllButton = document.createElement('button');
+      const deleteButtonText = document.createTextNode('Borrar favoritos');
+      deleteAllButton.appendChild(deleteButtonText);
+      deleteAllButton.classList.add('list__button', 'js_removeAllFav');
+      listContainer.appendChild(deleteAllButton);
+    }
   }
   selectRemoveFavlistener();
 }
@@ -130,4 +150,5 @@ function handleClickButton() {
   getApi();
 }
 searchButton.addEventListener('click', handleClickButton);
+
 getLocalStorage();
