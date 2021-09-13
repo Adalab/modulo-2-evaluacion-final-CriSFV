@@ -9,37 +9,37 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@85.1,419&family=Roboto+Mono:wght@331&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
   <link rel="stylesheet" href="./assets/css/main.css">
   <title>Evaluación final. Modulo-2. Cris Fernández</title>
-
 </head>
 
 <body>
-  <div class="page">
-    <header class="header">
-      <h1 class="title">Buscador de series</h1>
-    </header>
-    <main class="main">
 
-      <form action="" class="main__form js_form">
-        <input class="main__form__userText js_userText" type="text" placeholder="Pon aquí la serie a buscar">
-        <input class="main__form__searchButton js_searchButton" type="button" value="Buscar">
-      </form>
-      <section class="main__lists js_list">
-        <div class="list js_favoriteListContainer">
-          <h2 class="main__title js_listFavoriteTitle"></h2>
-          <ul class="list__films list__fav js_favoriteList">
-          </ul>
-        </div>
-        <div class="list js_list">
-          <h2 class="main__title js_listTitle"></h2>
-          <ul class="list__films list__search js_filmList">
-          </ul>
-        </div>
+  <header class="header">
+    <h1 class="header__title"><i class="fas fa-film"></i>Buscador de series</h1>
+    <form action="" class="header__form js_form">
+      <input class="header__form__userText js_userText" type="text" placeholder="Pon aquí la serie a buscar">
+      <input class="header__form__searchButton js_searchButton" type="button" value="Buscar">
+    </form>
+  </header>
+  <main class="main">
 
-      </section>
-    </main>
-  </div>
+    <section class="main__lists js_list">
+      <div class="list js_favoriteListContainer">
+        <h2 class="list__title js_listFavoriteTitle"></h2>
+        <ul class="list__films list__fav js_favoriteList">
+        </ul>
+      </div>
+      <div class="list js_list">
+        <h2 class="list__title js_listTitle"></h2>
+        <ul class="list__films list__search js_filmList">
+        </ul>
+      </div>
+
+    </section>
+  </main>
+
   <script src="./assets/js/main.js"></script>
 </body>
 
