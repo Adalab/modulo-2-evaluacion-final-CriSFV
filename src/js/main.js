@@ -31,6 +31,7 @@ function hadleRemoveAllFavFilm() {
   favorites.splice(0, favorites.length);
   paintFavorites();
   paintFilms();
+  setInLocalStorage();
 }
 function selectRemoveFavlistener() {
   const removeButtons = document.querySelectorAll('.js_removeFavButton');
