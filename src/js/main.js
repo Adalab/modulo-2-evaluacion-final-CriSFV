@@ -25,6 +25,7 @@ function hadleRemoveFavFilm(ev) {
   favorites.splice(numberInFavorites, 1);
   setInLocalStorage();
   paintFavorites();
+  paintFilms();
 }
 function hadleRemoveAllFavFilm() {
   favorites.splice(0, favorites.length);
@@ -37,7 +38,9 @@ function selectRemoveFavlistener() {
     eachButton.addEventListener('click', hadleRemoveFavFilm);
   }
   const removeAllButton = document.querySelector('.js_removeAllFav');
-  removeAllButton.addEventListener('click', hadleRemoveAllFavFilm);
+  if (removeAllButton !== null) {
+    removeAllButton.addEventListener('click', hadleRemoveAllFavFilm);
+  }
 }
 
 function paintFavorites() {
@@ -57,6 +60,7 @@ function paintFavorites() {
     }
   } else {
     listFavoriteTitle.innerHTML = 'Series favoritas';
+    console.log(document.querySelector('.js_removeAllFav'));
     if (document.querySelector('.js_removeAllFav') === null) {
       const deleteAllButton = document.createElement('button');
       const deleteButtonText = document.createTextNode('Borrar favoritos');
