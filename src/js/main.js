@@ -7,6 +7,7 @@ const favoriteList = document.querySelector('.js_favoriteList');
 const listTitle = document.querySelector('.js_listTitle');
 const listFavoriteTitle = document.querySelector('.js_listFavoriteTitle');
 const listContainer = document.querySelector('.js_favoriteListContainer');
+const logButton = document.querySelector('.js_log');
 
 let dataFilms = [];
 let favorites = [];
@@ -43,6 +44,15 @@ function selectRemoveFavlistener() {
     removeAllButton.addEventListener('click', hadleRemoveAllFavFilm);
   }
 }
+function handleFavoritesArray() {
+  for (const fav of favorites) {
+    console.log(fav);
+  }
+}
+
+function logListener() {
+  logButton.addEventListener('click', handleFavoritesArray);
+}
 
 function paintFavorites() {
   favoriteList.innerHTML = '';
@@ -55,12 +65,14 @@ function paintFavorites() {
   }
   if (favoriteList.innerHTML === '') {
     listFavoriteTitle.innerHTML = '';
+
     const deleteAllButton = document.querySelector('.js_removeAllFav');
     if (deleteAllButton !== null) {
       deleteAllButton.remove();
     }
   } else {
     listFavoriteTitle.innerHTML = 'Series favoritas';
+    logButton.innerHTML = 'LOG';
     if (document.querySelector('.js_removeAllFav') === null) {
       const deleteAllButton = document.createElement('button');
       const deleteButtonText = document.createTextNode('Borrar favoritos');
@@ -70,6 +82,7 @@ function paintFavorites() {
     }
   }
   selectRemoveFavlistener();
+  logListener();
 }
 
 function handleFilmSelected(ev) {
